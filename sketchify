@@ -1,0 +1,51 @@
+#영상을 스케치화해서 왼쪽클릭시 playing 오른쪽마우스 클릭시 stopped 기능 추가
+
+import cv2
+import numpy as np
+
+freezeFlag = False
+font = cv2.FONT_HERSHEY_SIMPLEX
+
+def onMouseEvent(event, x, y, flags, userdata) :
+   global freezeFlag
+   if event==cv2.EVENT_LBUTTONDOWN :
+      freezeFlag = False
+   elif event==cv2.EVENT_RBUTTONDOWN :
+      freezeFlag = True
+
+
+def sketchify(img, ksize=5):
+   # Convert image to grayscale
+   img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+   # Apply median filter to the grayscale image
+   img_gray = cv2.medianBlur(img_gray, 7)
+
+   # Detect edges in the image and threshold it
+   edges = cv2.Laplacian(img_gray, cv2.CV_8U, ksize=ksize)
+   ret, sketch = cv2.threshold(edges, 100, 255, cv2.THRESH_BINARY_INV)
+
+   sketch_bgr = cv2.cvtColor(sketch, cv2.COLOR_GRAY2BGR)
+   return sketch_bgr
+
+cv2.namedWindow('videoWindow')
+cv2.setMouseCallback('videoWindow', onMouseEvent)
+cap = cv2.VideoCapture('images/video_Twice.mp4')
+
+while(cap.isOpened()):
+   if not freezeFlag :  # 화면 재생
+      ret, frame = cap.read() # capture a frame
+      frameCopy = frame.copy()
+      cv2.putText(frame,'Playing',(10,50),font,1,(0,0,255),3)
+      cv2.imshow('videoWindow', sketchify(frame))
+   else :   # 화면 정지
+      cv2.putText(frameCopy,'Stopped',(10,50),font,1,(0,255,0),3)
+      cv2.imshow('videoWindow', sketchify(frameCopy))
+
+   c = cv2.waitKey(10) # wait for 10ms
+   print('freezeFlag ', freezeFlag)
+   if c == 27 :
+      break
+
+cap.release()
+cv2.destroyAllWindows()
