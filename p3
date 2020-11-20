@@ -1,0 +1,41 @@
+# project 3 웃는 얼굴 입술 왼쪽 끝에  heart img 삽입
+
+
+img_copy = img.copy()
+
+# heart-icon 파일 읽어 마스크 구함
+res_image = cv2.imread('heart-icon.png')  # res_image = heart이미지
+image_gray = cv2.cvtColor(res_image, cv2.COLOR_BGR2GRAY)
+
+_,r_mask = cv2.threshold(image_gray, 200, 255, cv2.THRESH_BINARY_INV) # image 마스크 
+res_mask = cv2.merge((r_mask, r_mask, r_mask))
+res_masked_image = cv2.bitwise_and(res_image, res_mask)
+a, b = res_masked_image.shape[:2]      # 하트이미지 마스크화
+
+
+plt.imshow(res_image[:,:,::-1])
+
+for i in range(0, len(faceRects)):
+ 
+  landmark = landmarkDetector(img_copy, faceRects[i])
+  smileRight = smilecheck(landmark)
+  if smileRight :
+    h = landmark.part(57).y - landmark.part(51).y   # 하트이미지 크기를 랜드마크 57과 51사이의 거리로 측정
+
+    w = np.int(b * (h / a))
+    res_small = cv2.resize(res_masked_image, (w, h))
+    res_mask_small = cv2.resize(res_mask, (w, h))
+
+    x1 = landmark.part(54).x     #랜드마크54로 설정
+    y1 = landmark.part(54).y
+
+    drximage = img_copy[y1:y1+h, x1:x1+w] * (1-res_mask_small / 255)
+    drximage = drximage.astype(np.uint8)
+
+    plt.figure()
+    plt.subplot(121); plt.imshow(res_small[:,:,::-1]); plt.title('image res')
+    plt.subplot(122); plt.imshow(drximage[:,:,::-1]); plt.title('masked drx_image')
+    img_copy[y1:y1+h, x1:x1+w] = drximage + res_small      # 하트이미지와 원본이미지 합침
+
+plt.figure(figsize=(11,11))
+plt.imshow(img_copy[:,:,::-1]); plt.title("heart image")
