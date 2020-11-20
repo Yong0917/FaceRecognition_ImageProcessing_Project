@@ -1,0 +1,28 @@
+# project 2 웃는 얼굴 입술 왼쪽 끝에 'Smile' 삽입
+
+def smilecheck(landmarks):
+    Smile = False
+    lipWidth = np.sqrt((landmarks.part(51).x-landmarks.part(57).x) * (landmarks.part(51).x-landmarks.part(57).x) + 
+                       (landmarks.part(51).y-landmarks.part(57).y) * (landmarks.part(51).y-landmarks.part(57).y) )   # 랜드마크 51이 윗입술, 57이 아랫입술 윗 입술과 아랫 입술 사이의 거리
+    
+    jawWidth = np.sqrt((landmarks.part(8).x-landmarks.part(57).x) * (landmarks.part(8).x-landmarks.part(57).x) + 
+                       (landmarks.part(8).y-landmarks.part(57).y) * (landmarks.part(8).y-landmarks.part(57).y) )  # 랜드마크 8이 턱, 57이 아랫입술 아랫입술과 턱사이의 거리
+    thres = 0.6                  # 임계치를 0.6으로 잡음
+  
+    if lipWidth / jawWidth >= thres :  # 웃는 얼굴은 윗입술과 아랫입술 사이 거리 / 아랫입술과 턱 사이 거리 >= 임계치로 판단
+        Smile = True            
+    return Smile      # 웃는얼굴을 판단하고 리턴  
+
+img_copy = img.copy()
+
+for i in range(0, len(faceRects)):
+  
+  landmark = landmarkDetector(img_copy, faceRects[i])
+  smileRight = smilecheck(landmark)    #함수 smilecheck에 얼굴을 넣어서 웃는 얼굴인지 체크
+  if smileRight :     # 웃는얼굴이 맞으면
+     cv2.putText(img_copy, "Smile", (landmark.part(54).x , landmark.part(54).y ), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+     # 랜드마크54번이 입술왼쪽끝, 54번에다가 Smile 텍스트 삽입
+
+plt.figure(figsize=(11,11))
+plt.imshow(img_copy[:,:,::-1])
+plt.title("img Smile")
