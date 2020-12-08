@@ -22,4 +22,8 @@
 -----------
 
 프로젝트 결과물 소개
-<img width = "1000" src = "https://user-images.githubusercontent.com/65889807/101455157-73b30100-3975-11eb-9309-b596fd9af7d6.png">
+1. 사진을 받아들이면 1차적으로 얼굴 검출을 한다. 다음으로 얼굴에 대한 랜드마크를 검출해 윗입술과 아랫입술 사이의 거리를 임계치로 계산해 웃는 얼굴을 판단한다. 
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101455157-73b30100-3975-11eb-9309-b596fd9af7d6.png">
+
+2.얼굴에 있는 눈을 인식해 선글라스 삽입하는 프로그램
+<img width = "700" src = "https://github.com/Yong0917/project1/issues/4#issue-759185539">
