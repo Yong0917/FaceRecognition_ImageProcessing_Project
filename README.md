@@ -22,8 +22,12 @@
 -----------
 
 프로젝트 결과물 소개
-1. 사진을 받아들이면 1차적으로 얼굴 검출을 한다. 다음으로 얼굴에 대한 랜드마크를 검출해 윗입술과 아랫입술 사이의 거리를 임계치로 계산해 웃는 얼굴을 판단한다. 
+1. 사진을 받아들이면 1차적으로 얼굴 검출을 한다. 다음으로 얼굴에 대한 랜드마크를 검출해 윗입술과 아랫입술 사이의 거리를 임계치로 계산해 웃는 얼굴을 판단한다. smile삽입
 <img width = "700" src = "https://user-images.githubusercontent.com/65889807/101455157-73b30100-3975-11eb-9309-b596fd9af7d6.png">
 
-2.얼굴에 있는 눈을 인식해 선글라스 삽입하는 프로그램
-<img width = "700" src = "https://github.com/Yong0917/project1/issues/4#issue-759185539">
+2. 위 프로그램과 같고 smile 대신 하트이미지를 마스킹하여 웃는입술 옆에 삽입
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101455157-73b30100-3975-11eb-9309-b596fd9af7d6.png">
+
+3. 얼굴을 검출해 얼굴 영역만 블러링(모자이크) 하는 프로그램
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101455579-27b48c00-3976-11eb-81a6-c5c0b146fbdf.png">
+
