@@ -35,6 +35,6 @@
 
 4. 얼굴을 검출하고 눈의 위치를 판단하여 선글라스를 씌어주는 프로그램. 이때 선글라스도 마스킹 해줘야된다.
 <div>
-<img width = "500" src = "https://user-images.githubusercontent.com/65889807/101455579-27b48c00-3976-11eb-81a6-c5c0b146fbdf.png">
-<img width = "500" src = "https://user-images.githubusercontent.com/65889807/101455579-27b48c00-3976-11eb-81a6-c5c0b146fbdf.png">
+<img width = "500" src = "https://user-images.githubusercontent.com/65889807/101455524-10759e80-3976-11eb-8416-4be8a0717b4a.png">
+<img width = "500" src = "https://user-images.githubusercontent.com/65889807/101455543-1a979d00-3976-11eb-9035-4230216c5630.png">
 </div>
