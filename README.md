@@ -40,10 +40,10 @@
 </div>
 
 5. 이미지를 받아들여서 카툰화 하는 프로그램
-<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101458296-0b1a5300-397a-11eb-8713-486bb23e5699.png">
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101483202-2a75a800-399b-11eb-8543-2a34ab9b4d7a.png">
 
 6. 영상을 받아들여 왼쪽마우스클릭하면 playing, 오른쪽 마우스 클리하면 stop 하게 하고 영상을 스케치화하는 프로그램 
-<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101458404-30a75c80-397a-11eb-8869-4ce31205fbdc.png">
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101483255-3eb9a500-399b-11eb-9dc3-a26d13f26758.png">
 
 -----------
 개발 결과물의 필요성 및 활용방안
