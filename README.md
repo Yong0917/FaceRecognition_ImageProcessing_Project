@@ -38,3 +38,9 @@
 <img width = "500" src = "https://user-images.githubusercontent.com/65889807/101455524-10759e80-3976-11eb-8416-4be8a0717b4a.png">
 <img width = "500" src = "https://user-images.githubusercontent.com/65889807/101455543-1a979d00-3976-11eb-9035-4230216c5630.png">
 </div>
+
+5. 이미지를 받아들여서 카툰화 하는 프로그램
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101455524-10759e80-3976-11eb-8416-4be8a0717b4a.png">
+
+6. 영상을 받아들여 왼쪽마우스클릭하면 playing, 오른쪽 마우스 클리하면 stop 하게 하고 영상을 스케치화하는 프로그램 
+<img width = "700" src = "https://user-images.githubusercontent.com/65889807/101455524-10759e80-3976-11eb-8416-4be8a0717b4a.png">
